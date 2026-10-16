@@ -5,6 +5,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate-artifact.mjs",
-    "dev": "node scripts/preview.mjs"
+    "dev": "node scripts/preview.mjs",
+    "build:pages": "node scripts/export-pages.mjs"
   }
 }

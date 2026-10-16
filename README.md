@@ -14,7 +14,7 @@ FORMA
 
 ## Опубликованный сайт
 
-https://forma-portfolio-ilya-1016.groovy-lime-9135.chatgpt.site
+https://ililat.github.io/forma-portfolio/
 
 Публикация в Sites. Сайт доступен всем по ссылке без входа через ChatGPT.
 
@@ -43,3 +43,9 @@ GitHub хранит исходники. GitHub Pages не запускает Wor
 ## Изображения
 
 Демонстрационные изображения построены средствами CSS.
+
+## GitHub Pages
+
+Публичный адрес: https://ililat.github.io/forma-portfolio/
+
+Экспорт: npm run build:pages. Каталог docs публикуется из ветки main. Формы обращаются к существующему Worker, который разрешает запросы с https://ililat.github.io.
