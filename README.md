@@ -1,28 +1,45 @@
-# Sites Worker ESM starter
+# FORMA
 
-Use this starter for a static microsite, click counter, or simple internal UI whose state is browser-scoped. It has no dependencies and needs no install.
+FORMA
 
-Edit `worker/index.js`, then publish through the Sites hosting workflow with this starter's build and validation in `commands`.
+Описание
+Концептуальный сайт портфолио независимого дизайн бюро. Задача проекта — показать визуальный подход, представить работы и создать понятный путь от знакомства с бюро до отправки заявки.
 
-The build copies only `worker/index.js` and `.openai/hosting.json`. Do not add standalone asset files. Embed any essential raster bytes in `worker/index.js` and serve or reference them as a data URL.
+Решение
+Светлая основа, крупная типографика и лаймовые акценты формируют выразительный образ. Анимированная объёмная композиция реагирует на движение курсора. Проекты можно фильтровать по направлениям и открывать на отдельных страницах с описанием задачи и решения. Форма подключена к бэкенду с проверкой данных и сохранением обращений в серверном хранилище.
 
-Pass these argument arrays as `commands`:
+Результат
+Адаптивный сайт из восьми страниц с четырьмя концептуальными кейсами, анимацией, навигацией и работающим сценарием отправки заявки. Проект демонстрирует полный цикл создания сайта от визуальной идеи до серверной логики. Коммерческие показатели не измерялись, бренды и кейсы вымышлены.
 
-```json
-[
-  ["bash", "scripts/build.sh"],
-  ["node", "scripts/validate-artifact.mjs"]
-]
+
+## Опубликованный сайт
+
+https://forma-portfolio-ilya-1016.groovy-lime-9135.chatgpt.site
+
+Публикация в Sites. Доступ по текущим настройкам аккаунта, может требовать входа через ChatGPT.
+
+## Локальный запуск
+
+Требуется Node.js 22 или новее. Внешние зависимости не нужны.
+
+```sh
+npm run dev
 ```
 
-The deterministic build produces:
+Откройте http://localhost:4173. Для другого порта задайте переменную PORT. Локальные тестовые заявки сохраняются в .local-data и исключены из Git.
 
-```text
-dist/
-├── .openai/
-│   └── hosting.json
-└── server/
-    └── index.js
+## Сборка
+
+```sh
+npm run build
 ```
 
-`dist/server/index.js` is an ES module with a default export containing `fetch(request, env, ctx)`. Edit `worker/index.js`, not the generated file under `dist/`.
+## Бэкенд
+
+Cloudflare Worker с методом fetch. POST /api/inquiries проверяет данные и сохраняет JSON в R2 через binding BUCKET. GET /api/health возвращает состояние сервиса. Письма не отправляются. Личные данные и заявки не включены в исходники.
+
+GitHub хранит исходники. GitHub Pages не запускает Worker и не заменяет серверный хостинг. Для отдельного развёртывания нужен Cloudflare Worker с R2 binding BUCKET либо совместимая среда.
+
+## Изображения
+
+Демонстрационные изображения построены средствами CSS.
